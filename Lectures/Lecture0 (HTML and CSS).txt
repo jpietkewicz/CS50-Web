@@ -1,0 +1,105 @@
+HTML:
+	DOM - document object model
+		child/parent relationships for elements of page
+	img - src and alt attributes required
+		alt - text-based representation for screen readers etc.
+		if width only added, picture scales to maintain ratio
+	table
+		thead - meaning of each column
+			<tr> where each element is a <th> element
+		tbody
+			<tr> elements containing <td> elements
+		tfoot
+	form
+		each <input> element (not submit) has name
+		datalist
+			choose from dropdown
+			associated with "list" <input> element (id attribute matches list attribute)
+			contains <option> elements for all options
+			filters down as you type (HTML5)
+	div - division to create sections of page
+	control viewport with <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+CSS:
+	padding - space on inside of element border (adds width and height if hard-coded)
+	margin - space on outside of element border (rest of page)
+	font-family - add fallback font types if specific one is not supported
+	border-collapse: collapse; - collapse borders in table into one line
+	
+	specificty: inline -> id -> class -> type
+	
+	selectors
+		descendants (a b) or direct children (a > b)
+			b descending from a or directly descending only will be styled
+		attribute (a[attribute])
+			specific attributes matching attribute with type a
+		pseudoclass (element:action)
+			used for hovering and the like
+			elements with state of action will be styled accordingly
+				
+	media queries
+		in style tag in head:
+			@media () - in () is if condition then {} showing what to do
+		any attributes/properties can be used
+			
+		ex. (to change background depending on width of viewport)
+		@media (min-width: 600px) { 
+			body {
+				background-color: red;
+			}
+		}
+		@media (max-width: 599px) {
+			body {
+				background-color: blue
+			}
+		}
+
+		
+	flexbox
+		id="container" div { display: flex; flex-wrap: wrap; }
+		child selector (container > div) will change each div to overall style
+	grid
+		display: grid;
+		grid-column-gap: numPixels; - gap between columns
+		grid-row-gap: numPixels; - gap between rows
+		grid-template-columns: ; - declare how big (or auto) for each column in grid
+	Bootstrap
+		documentation shows <link> as well as classes etc to use for each element (under components)
+		column model
+			12 distinct columns
+			<div class="container"> => <div class="row"> => <div class="col-width"> where widths add up to 12 for each row
+			auto resize upon viewport change
+				keep respective widths
+			class="col-lg-width" or "col-sm-width" changes column sizes depending on screen (similar to flexbox auto sizing), still add up to 12
+	Sass
+		.scss extension
+		$variableName: value;
+		use as $variableName for attribute value
+		uses descendant selector in compiled file (a b)
+		
+		ex. $color: red; -> body { color: $color; }
+		must install Sass onto computer to compile 
+			sass filename:generatedFile (variables.scss:variables.css)
+			reference .css that was compiled
+		'sass --watch filename:generatedFile' to automate recompiling from command line
+		
+		nesting selectors
+			'outer element' {
+				any styling for entire element
+				'inner element' {
+					inner element styling
+				}
+				'another inner element' {
+					another inner element styling
+				}
+			}
+		
+		inheritance
+			ex. 
+				%message {
+					style for "messages"
+				}
+				.success {
+					@extend %message
+					any additional styling for "successes" in particular
+				}

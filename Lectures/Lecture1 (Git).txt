@@ -1,0 +1,42 @@
+git clone <url>
+	clone repo
+git add <filename>
+	add file or folder to tracking
+	git add . - all files added
+git commit -m "message"
+	message should tell what changes were made to files
+git status
+	shows status of local repo's branch compared to master branch
+git commit -am "message"
+	add and commit all files changed then provide message
+git push
+git pull
+	pull repo if newer than local
+git log
+	shows all commits
+git reset
+	revert back to previous version
+	git reset --hard <commit>
+		<commit> is hash of specific commit
+	git reset --hard origin/master
+		reset to current version on GitHub (or the like)
+
+branching
+	split master branch to work on separate features while fixing bugs on master
+	HEAD - main focus at any time
+	git branch
+		shows branches currently active
+		* - branch currently on (HEAD)
+	git checkout -b <name>
+		create and switch to new branch <name>
+	git checkout <name>
+		switches to <name> branch
+	git merge <name>
+		merge <name> into master
+	forking
+		make copy of repo into own hub
+		make pull request to owner
+
+GitHub Pages
+	use GH to make a webpage for free
+	make new repo with <name>.github.io
